@@ -139,4 +139,12 @@ sh=$(which $SHELL)
 exec $sh
 }
 
+# Last package installed
+function lastpack() {
+
+OPWD=$PWD
+:'Paket terakhir diinstal'
+cd /system/xbin busybox Is -Irt | grep ^- | awk 'END{print $NF}'
+}
+
 #eof
