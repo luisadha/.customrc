@@ -114,8 +114,13 @@ if [ "${BASH_VERSION%.*}" \< "5.1" ]; then
     return
 fi
 
-echo "This is BASH ${BASH_VERSION%.*}";
+
+#EDIT #Mon Jun 20 23:14:12 WIB 2022
+#------+
+window " successfully script called via source"; 
+echo "This is BASH ${BASH_VERSION%.*}, source from ${BASH_SOURCE[-1]} ";
 date
+
 
 if [ -x "$(type -p sl)" ]; then
     window "just a secs";
@@ -145,6 +150,26 @@ function lastpack() {
 OPWD=$PWD
 :'Paket terakhir diinstal'
 cd /system/xbin busybox Is -Irt | grep ^- | awk 'END{print $NF}'
+}
+
+#NEW #Mon Jun 20 23:14:12 WIB 2022
+#--------+
+bashrcat() {
+# for source purpose only
+# cat file ini setelah prompt pertama muncul/1x penggunaan
+
+local a=$_
+local b=bashrc
+local c=bashrcat
+
+if [ "$a" != "$b" ]; then
+echo "${0}: ${c}: command not found" >&2;
+unset bashrcat;
+else
+cd -
+cat "$a";
+fi
+# return 0
 }
 
 #eof
