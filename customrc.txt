@@ -62,7 +62,7 @@ shopt -s histappend
 if [[ ${EUID} == 0 ]] ; then
 # feature admin
 # Quick (un)mounting of /system as writable
-      alias su='echo \"you currently logged as root, not change anything :-?.\"'
+     # alias su='echo \"you currently logged as root, not change anything :-?.\"' this DELETED because code coplicated
       alias sysro='mount -o remount,ro /system'
       alias sysrw='mount -o remount,rw /system'
       alias microsd='cd -- $SECONDARY_STORAGE && /system/xbin/busybox ls -FR $1 > /sdcard/sdcard1.out'
@@ -161,7 +161,7 @@ if [ "$_last_prog" != "$_filename" ]; then
 
 else
    cd -
-    cat "$a";
+    cat "$_last_prog";
 
 fi
  return 0
