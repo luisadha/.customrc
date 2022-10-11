@@ -1,4 +1,4 @@
-# My-Bashrc
+# ANDROID_ROOT/BASHRC
 
 Penjelasan singkat,
 
