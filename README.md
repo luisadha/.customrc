@@ -19,11 +19,8 @@ Isi paket.
 
 Ketergantungan
 
-Bash 5.1 (modul ccbins magisk merekomendasikan bin ini)
-Modul Magisk #Terminal Modifikasi untuk menggunaan lebih baik dari Bash
-
-
-
+1. Bash 5.1 (modul ccbins magisk merekomendasikan bin ini)
+2. modul Magisk #Terminal Modifikasi untuk menggunaan lebih baik dari Bash
 
 P.S: Please translate to your native language if you don't understand
 This text is in Indonesian
