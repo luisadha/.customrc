@@ -10,8 +10,11 @@ Bashrc ini mengambil sebagian kode dari Bashrc's NanoMod/NanoDroid (lihat nanolx
 Saya hanya berbagi dan semoga dapat digunakan dan bermanfaat.
 
 Isi paket.
+
 • .customrc  # tambahan atau alternatif berkas untuk keperluan modul magisk "Terminal Modification"
+
 • bashrc  # bashrc untuk sistem Shell bash
+
 • bash_logout # untuk aksi terakhir ketika sesi Shell berakhir, biasanya selalu berada bersama /system/etc/bash/bashrc 
 
 Ketergantungan
