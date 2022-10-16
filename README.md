@@ -1,4 +1,4 @@
-# ANDROID_ROOT/BASHRC
+# $ANDROID_ROOT/ETC/BASH/BASHRC
 
 Penjelasan singkat,
 
