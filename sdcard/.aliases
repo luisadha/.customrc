@@ -32,6 +32,8 @@ cu() {
 alias cp='cp -g'
 alias mv='mv -g'
 
+####################
+# this patch from @luisadha 
 mount_system_root()
 {
     mount -o rw,remount /
