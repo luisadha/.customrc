@@ -18,7 +18,7 @@ Lainnya
  * bash_logout # seperti pada umumnya file ini harus berada tidak jauh dari file bashrc.
 
 ## Saran lokasi
- Bashrc dan bash_logout didisain untuk system tetapi anda dapat menggunakannya di manapun.
+ bashrc dan bash_logout didisain untuk system tetapi anda dapat menggunakannya di manapun, tetapi perlu diperhatikan jangan menimpa file .bashrc by Skittles9823 dengan ini itu akan menggangu modul Terminal yang anda pasang.
 
 
 Ketergantungan
