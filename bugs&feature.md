@@ -1,10 +1,14 @@
-dependencies
-/system/bin/bash
-/system/bin/bash.bin
-/system/etc/bashrc
-/system/etc/bash_logout
 
-#bugs bashrc
+
+
+
+
+
+
+
+
+
+# bugs 
 ## 11814 fixed
 - "double execute" 
 ## 40054 fixed
