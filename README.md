@@ -3,11 +3,13 @@
 
 ## Penjelasan singkat
 File bashrc adalah skrip shell yang dijalankan Bash setiap kali dimulai. Bashrc membantu menentukan bagaimana antarmuka baris perintah (CLI) atau aplikasi Terminal Anda terlihat dan bertindak, Seiring dengan pengaturan di OS.
+
 Belajar lebih https://cloudzy.com/knowledge-base/linux-bashrc/
 
 ## Tentang Paket ini
 Terutama bashrc
  * ini mengambil sebagian kode dari Bashrc's NanoMod/NanoDroid (lihat nanolx.org) untuk Android Dan dan tambahan berapa kode dari saya untuk personalisasi.
+
 Lainnya
  * .customrc (systemlessly)  # tambahan atau alternatif berkas untuk kelengkapan modifikasi anda dalam hal ini saya berbicara tentang modul magisk "Terminal Modification".
 
