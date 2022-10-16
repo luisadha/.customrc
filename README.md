@@ -1,26 +1,29 @@
 # $ANDROID_ROOT/ETC/BASH/BASHRC
+&
 
-Penjelasan singkat,
+## Penjelasan singkat
+File bashrc adalah skrip shell yang dijalankan Bash setiap kali dimulai. Bashrc membantu menentukan bagaimana antarmuka baris perintah (CLI) atau aplikasi Terminal Anda terlihat dan bertindak, Seiring dengan pengaturan di OS.
+Belajar lebih https://cloudzy.com/knowledge-base/linux-bashrc/
 
-Apa itu bashrc adalah file konfigurasi untuk Shell bash agar berfungsi.
+## Tentang Paket ini
+Terutama bashrc
+ * ini mengambil sebagian kode dari Bashrc's NanoMod/NanoDroid (lihat nanolx.org) untuk Android Dan dan tambahan berapa kode dari saya untuk personalisasi.
+Lainnya
+ * .customrc (systemlessly)  # tambahan atau alternatif berkas untuk kelengkapan modifikasi anda dalam hal ini saya berbicara tentang modul magisk "Terminal Modification".
 
+ * .aliases  (systemlessly)  # file backup dari modul modifikasi terminal juga telah ditambal untuk tujuan perbaikan.
+ 
+ * bash_logout # seperti pada umumnya file ini harus berada tidak jauh dari file bashrc.
 
-Bashrc ini mengambil sebagian kode dari Bashrc's NanoMod/NanoDroid (lihat nanolx.org) untuk Android Dan dan tambahan berapa kode dari saya untuk personalisasi.
+## Saran lokasi
+ Bashrc dan bash_logout didisain untuk system tetapi anda dapat menggunakannya di manapun.
 
-Saya hanya berbagi dan semoga dapat digunakan dan bermanfaat.
-
-Isi paket.
-
-• .customrc  # tambahan atau alternatif berkas untuk keperluan modul magisk "Terminal Modification"
-
-• bashrc  # bashrc untuk sistem Shell bash
-
-• bash_logout # untuk aksi terakhir ketika sesi Shell berakhir, biasanya selalu berada bersama /system/etc/bash/bashrc 
 
 Ketergantungan
 
-1. Bash 5.1 (modul ccbins magisk merekomendasikan bin ini)
-2. modul Magisk #Terminal Modifikasi untuk menggunaan lebih baik dari Bash
+1. Bash 5.1
+
+2. Modul CCBins & Terminal Modification (Magisk systemlessly), jika anda mendownload .customrc dan .aliases
 
 P.S: Please translate to your native language if you don't understand
 This text is in Indonesian
