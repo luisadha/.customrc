@@ -1,5 +1,4 @@
-# $ANDROID_ROOT/ETC/BASH/BASHRC
-&
+# $ANDROID_ROOT/etc/bash/bashrc & $EXTERNAL_STORAGE/.customrc
 
 ## Penjelasan singkat
 File bashrc adalah skrip shell yang dijalankan Bash setiap kali dimulai. Bashrc membantu menentukan bagaimana antarmuka baris perintah (CLI) atau aplikasi Terminal Anda terlihat dan bertindak, Seiring dengan pengaturan di OS.
@@ -18,7 +17,7 @@ Lainnya
  * bash_logout # seperti pada umumnya file ini harus berada tidak jauh dari file bashrc.
 
 ## Saran lokasi
- bashrc dan bash_logout didisain untuk system tetapi anda dapat menggunakannya di manapun, tetapi perlu diperhatikan jangan menimpa file .bashrc by Skittles9823 dengan ini itu akan menggangu modul Terminal yang anda pasang.
+ bashrc dan bash_logout didisain untuk system tetapi anda dapat menggunakannya di manapun, tetapi perlu diperhatikan jangan menimpa file .bashrc by Skittles9823 dengan bashrc ini itu akan menggangu modul Terminal yang anda pasang (magisk).
 
 
 Ketergantungan
