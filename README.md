@@ -1,5 +1,9 @@
 # $ANDROID_ROOT/etc/bash/bashrc & $EXTERNAL_STORAGE/.customrc
 
+# Attention!
+Please translate to your native language if you don't understand
+This text is still in Indonesian
+
 ## Penjelasan singkat
 File bashrc adalah skrip shell yang dijalankan Bash setiap kali dimulai. Bashrc membantu menentukan bagaimana antarmuka baris perintah (CLI) atau aplikasi Terminal Anda terlihat dan bertindak, Seiring dengan pengaturan di OS.
 
@@ -26,5 +30,3 @@ Ketergantungan
 
 2. Modul CCBins & Terminal Modification (Magisk systemlessly), jika anda mendownload .customrc dan .aliases
 
-P.S: Please translate to your native language if you don't understand
-This text is in Indonesian
