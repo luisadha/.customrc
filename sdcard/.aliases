@@ -32,16 +32,3 @@ cu() {
 alias cp='cp -g'
 alias mv='mv -g'
 
-####################
-# this patch from @luisadha 
-mount_system_root()
-{
-    mount -o rw,remount /
-    mount -o bind /sbin/.magisk/mirror/system /system
-    mount -o rw,remount /system
-}
-
-mount_magisk_systemless()
-{
- echo " Force Close your Terminal Apps!"
-}
