@@ -1,15 +1,32 @@
 #begin
-#- MY $ANDROID_ROOT/etc/bashrc or /sdcard/.customrc FILE for bash-5.1 (or later)
-# modifications from nanodroid bashrc's (nanolx.org)
-#
-# By luisadha bashrc's
+#- MY $EXTERNAL_STORAGE/.customrc FILE for Module magisk "Terminal Modification"
+
 # - UPDATE!
-# - Fix bug bashrcat with .customrc from  Module Terminal Modification & Ccbins (bash) #Magisk
-
-
+# - changes value variable from .bashrc to .customrc 
+ 
 # -
 # Revision 4, Last modified: 
 # Sun Oct  9 10:05:44 WIB 2022
+
+
+# memes
+export LOL="your mom"
+alias lol='echo "$LOL"'
+
+# custom functions 
+## to switch to the actual mount /system
+mount_system_root()
+{
+    mount -o rw,remount /
+    mount -o bind /sbin/.magisk/mirror/system /system
+    mount -o rw,remount /system
+}
+
+## to return to the magisk environment
+mount_magisk_systemless()
+{
+ echo " Force Close your Terminal Apps!"
+}
 
 
 function window () {
