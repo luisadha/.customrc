@@ -16,7 +16,7 @@ Terutama bashrc
 Lainnya
  * .customrc (systemlessly)  # tambahan atau alternatif berkas untuk kelengkapan modifikasi anda dalam hal ini saya berbicara tentang modul magisk "Terminal Modification".
 
- * .aliases  (systemlessly)  # file backup dari modul modifikasi terminal juga telah ditambal untuk tujuan perbaikan.
+ * .aliases  (systemlessly)  # file backup dari modul modifikasi terminal jika anda secara tidak sengaja menghapus file ini.
  
  * bash_logout # seperti pada umumnya file ini harus berada tidak jauh dari file bashrc.
 
