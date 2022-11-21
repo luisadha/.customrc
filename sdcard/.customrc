@@ -5,8 +5,8 @@
 # - changes value variable from .bashrc to .customrc 
  
 # -
-# Revision 4, Last modified: 
-# Sun Oct  9 10:05:44 WIB 2022
+# Revision 5, Last modified: 
+# 
 
 
 # memes
@@ -17,9 +17,13 @@ alias lol='echo "$LOL"'
 ## to switch to the actual mount /system
 mount_system_root()
 {
+if [[ ${EUID} == 0 ]] ; then
     mount -o rw,remount /
     mount -o bind /sbin/.magisk/mirror/system /system
     mount -o rw,remount /system
+else 
+ echo "Are you root?"
+fi
 }
 
 ## to return to the magisk environment
@@ -86,6 +90,7 @@ if [[ ${EUID} == 0 ]] ; then
       alias microsd='cd -- $SECONDARY_STORAGE && /system/xbin/busybox ls -FR $1 > /sdcard/sdcard1.out'
 
 else
+      alias microsd="echo 'please type su first!'"
       alias su="su --shell ${SHELL}"
 fi
 
@@ -118,15 +123,15 @@ resize &>/dev/null;
 input keyevent 4;
 clear
 
-cd ${HOME}
+cd ${HOME} || cd ${HOME}/.bash_tmp
 
-if [ -r "${HOME}/.bash_profile" ]; then
-        . "${HOME}/.bash_profile"
-fi
+# if [ -r "${HOME}/.bash_profile" ]; then
+      #  . "${HOME}/.bash_profile"
+# fi
 
-if [ -r "${HOME}/.bashrc" ]; then
-        . ~/.bashrc
-fi
+# if [ -r "${HOME}/.bashrc" ]; then
+      #  . ~/.bashrc
+# fi
 
 source_bash_exit () {
 
