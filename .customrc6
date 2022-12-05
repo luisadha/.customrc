@@ -1,0 +1,233 @@
+
+#begin
+#- MY $EXTERNAL_STORAGE/.customrc FILE for Module magisk "Terminal Modification"
+
+# - UPDATE!
+# - changes value variable from .bashrc to .customrc 
+ 
+# -
+# Revision 6, Last modified: 
+# Mon Nov 14 0:09:09 WIB 2022
+
+
+# memes
+export LOL="your mom"
+alias lol='echo "$LOL"'
+
+# custom functions 
+
+_err_reqsu()
+{
+ echo "please type su first!."
+return 1
+}
+
+## to switch to the actual mount /system
+mount_system_root()
+{
+if [[ ${EUID} == 0 ]] ; then
+    mount -o rw,remount /
+    mount -o bind /sbin/.magisk/mirror/system /system
+    mount -o rw,remount /system
+ echo "mounted"
+else
+  echo
+_err_reqsu
+ return 1
+fi
+}
+
+## to return to the magisk environment
+mount_magisk_systemless()
+{
+ echo " Force Close your Terminal Apps!"
+}
+
+
+function window () {
+echo -en "\e]2;$@\007"
+}
+
+alias bash=$(type -p bash.bin) # fix "double execute" bug if you using nanodroid bash
+export BASH_ARGV0='bash' # fix "$0 are bash.bin" bug
+export SHELL='bash'
+export USER=$(whoami)
+export SYSTEM='/system'
+# export SHELL=${BASH} this delete
+
+
+# select storage path
+if [ -n ${EXTERNAL_STORAGE} ]; then
+	export HOME="${EXTERNAL_STORAGE}"
+else
+	if [ -w /sdcard ]; then
+		export HOME="/sdcard"
+	elif [ -w /storage/self/primary ]; then
+		export HOME="/storage/self/primary"
+	elif [ -w /data/media/0 ]; then
+		export HOME="/data/media/0"
+	fi
+fi
+
+
+export SECONDARY_STORAGE="$(su -c /system/xbin/busybox ls -d /mnt/media_*/*)";
+
+export TMPDIR=${HOME}/.bash_tmp
+export HISTFILE=${HOME}/.bash_history
+
+mkdir -p ${TMPDIR}
+
+export TERM=xterm
+export PAGER=less.bin
+
+
+# Access some commands built for Android
+export PATH="/data/local/bin:${PATH}"
+export LD_LIBRARY_PATH="/data/local/lib:${LD_LIBRARY_PATH}"
+export CLICOLOR=yes
+export LSCOLORS="exfxcxdxbxegedabagacad"
+
+[[ $- != *i* ]] && return
+
+shopt -s checkwinsize
+shopt -s histappend
+
+# Different aliases for root and normal user
+if [[ ${EUID} == 0 ]] ; then
+# feature admin
+# Quick (un)mounting of /system as writable
+     # alias su='echo \"you currently logged as root, not change anything :-?.\"' this DELETED because code coplicated
+      alias sysro='mount -o remount,ro /system'
+      alias sysrw='mount -o remount,rw /system'
+      alias microsd='cd -- $SECONDARY_STORAGE && /system/xbin/busybox ls -FR $1 > /sdcard/sdcard1.out; '
+    
+else
+      alias microsd="_err_reqsu"
+      alias su="su --shell ${SHELL}"
+fi
+
+if [ -n "$(type -p busybox)" ]; then
+# Set up a ton of aliases to cover toolbox with the nice busybox
+# equivalents of its commands
+for i in cat chmod chown df insmod ln lsmod mkdir mount mv rm rmdir rmmod umount; do
+eval alias ${i}=\"busybox ${i}\"
+done
+unset i
+
+# Give ls and grep colours
+alias ls='busybox ls --color=auto'
+alias grep='busybox grep --color=auto'
+fi
+
+# r for replay mybe, inspirated from builtin aliases of mksh shell
+alias r="fc -e -"
+
+red="\[\033[01;38;5;1m\]"
+gre="\[\033[01;38;5;2m\]"
+blu="\[\033[01;38;5;4m\]"
+whi="\[\033[01;38;5;7m\]"
+
+export HOSTNAME=$(getprop ro.product.device)
+export PS1="${whi}[ ${blu}\$(whoami) ${whi}@ ${red}${HOSTNAME} ${whi}: ${gre}\w ${whi}] "
+
+window "press 'enter' button to procced"
+resize &>/dev/null;
+input keyevent 4;
+clear
+
+cd ${HOME}/.bash_tmp
+touch ${HOME}/bash_logout
+
+source_bash_exit () {
+
+#EDIT #Mon Jun 20 23:14:12 WIB 2022
+#-----+
+if [ -r "${SYSTEM}/etc/bash_logout" ] && [ -r "${HOME}/bash_logout" ]; then
+. "${SYSTEM}/etc/bash_logout"
+. "$HOME/bash_logout"
+fi
+}
+trap source_bash_exit EXIT
+
+
+
+if [ "${BASH_VERSION%.*}" \< "5.1" ]; then
+    echo "You will need to upgrade to version 5.1 for full 
+          programmable completion features, install Module Magisk \"Cross Compiler Binaries\" then choose Bash.\n";
+    window "$RANDOM";
+    return
+fi
+
+#EDIT #Mon Jun 20 23:14:12 WIB 2022
+#------+
+
+
+
+if [ -x "$(type -p sl)" ]; then
+    window "just a secs";
+    sl
+sleep 1;
+window "Window $(basename $(tty))"
+unset HOSTNAME
+fi
+
+#NEW #Mon Jun 20 23:14:12 WIB 2022
+#--------+
+
+bashrcat() {
+#Usage:  bashrcat: cat file ini setelah sesi shell dimuat. 1x penggunaan
+
+# ver: 1.0 debug purpose
+# - fungsi akan bekerja jika di rangsang dengan source ke rcfile ini pada commamd line terlebih dahulu. (default rcfile: .customrc)
+
+ #  Alurnya seperti ini :
+# Type this snippet to command line
+# `source /to/dir/.customrc' then type 
+# `bashrcat' 
+
+# Ver : 2.0 User Exp
+# - fungsi akan bekerja saat sesi bash dimuat, ini berarti anda harus menambahkan kode di bashrc sistem anda
+
+# alurnya seperti ini :
+# .bashrc sistem 
+# ....
+# source /to/dir/.customrc
+# : place customizations above this line
+#
+
+# CURRENT_VER=2
+
+local _last_prog=$_
+local _save_prog=${_last_prog}
+local _function_name=bashrcat
+
+if [ "$_save_prog" != "$_last_prog" ]; then
+  echo "${0}: ${_function_name}: command not found :3" >&2;
+ unset bashrcat;
+  return 1
+else
+   cd - >/dev/null 2>&1;
+    cat "$_save_prog"
+unset bashrcat
+   fi
+ return 0
+}
+mading() {
+B_TOGGLE=$(type -t bashrcat)
+echo "feature: "
+echo -e "- bashrcat is ${B_TOGGLE:-" Off" }";
+echo -e "- microsd is $(type -t microsd) \n ";
+}
+
+window "sccessfully script load from ${BASH_SOURCE[-1]} ";
+echo "This is BASH ${BASH_VERSION%.*}, source from ${BASH_SOURCE[-1]} ";
+
+mading
+
+date
+
+bashrcat3() { cat /system/etc/bash/bashrc; }
+
+. ~/.pretty_bash_prompt
+
+#eof
