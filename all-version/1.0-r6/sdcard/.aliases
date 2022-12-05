@@ -1,0 +1,62 @@
+# .aliases by Skittles9823 2018 - 2019
+
+#           Terminal Mods
+
+alias aflinger='rootcheck && $ROOT dumpsys media.audio_flinger'
+
+alias bb='$BBDIR/busybox'
+
+alias bsu='su -s bash'
+
+alias dservice='rootcheck && $ROOT dumpsys media.dolby_memoryservice'
+
+alias killice='rootcheck && $ROOT killall dk.icepower.icesound'
+
+alias l='bb ls --group-directories-first'
+
+alias la='l -A'
+
+alias ll='l -l'
+
+alias lo='l -al'
+
+alias ls='ls --color=auto'
+
+alias nano='nano -l'
+
+alias killpac='rootcheck && $ROOT kill $(pidof $1)'
+
+alias sbash='. /system/etc/bash/bashrc  2>/dev/null; '
+
+alias sudo='su -c "$@"'
+
+alias sysro='mount -o remount,ro /system'
+
+alias sysrw='mount -o remount,rw /system'
+
+alias vd='cd'
+
+# Functions which I'm gonna count as aliases
+
+getperms(){ rootcheck && $ROOT pm get-privapp-permissions $1 | sed "s/, /\n/g" 
+
+}
+
+getdenyperms(){ rootcheck && $ROOT pm get-privapp-deny-permissions $1 | sed "s/, /\n/g" 
+
+}
+
+alias curl='curl --dns-servers 1.1.1.1,1.0.0.1,192.168.100.1 "$@"'
+
+export TERMINFO=/system/usr/share/terminfo
+
+cu() {
+
+  coreutils --coreutils-prog=${@}
+
+} #cu
+
+alias cp='cp -g'
+
+alias mv='mv -g'
+
