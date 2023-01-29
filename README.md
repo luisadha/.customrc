@@ -14,4 +14,4 @@ Intructions :
 
 3. last requirement  download the Busybox Ndk module by Osm0asis at https://forum.xda-developers.com/t/tools-zips-scripts-osm0sis-odds-and-ends-multiple-devices-platforms.2239421/
 
-Place this files to /sdcard
+4. Place this files to /sdcard
