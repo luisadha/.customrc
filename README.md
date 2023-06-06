@@ -1,3 +1,4 @@
+!!ROOT ONLY!! (MAGISK)
 $EXTERNAL_STORAGE/.customrc
 
 Bashrc 2 you name it .customrc for Magisk Terminal Modification Module
